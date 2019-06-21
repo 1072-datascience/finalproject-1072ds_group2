@@ -1,9 +1,9 @@
-# < Title of your final project >
+# < 台灣未來空氣品質之預測 >
 
 ### Groups
-* < name, student ID1 >
-* < name, student ID2 >
-* < name, student ID3 >
+* < 陳嘉葳, 105204031 >
+* < 黃品硯, 105703058 >
+* < 劉容任, 104703035 >
 * ...
 
 ### Goal
