@@ -3,7 +3,7 @@ library(rpart)
 library(caret)
 
 
-model1_acc <- function(train)
+model1_loss <- function(train)
 {
   model <- lm(target~., data=train)
   
@@ -13,7 +13,7 @@ model1_acc <- function(train)
   return(train_acc)
 }
 
-model2_acc <- function(train)
+model2_loss <- function(train)
 {
   model <- glm(target~., data=train)
 
@@ -23,7 +23,7 @@ model2_acc <- function(train)
   return(train_acc)
 }
 
-model3_acc <- function(train)
+model3_loss <- function(train)
 {
   model <- rpart(target~., method="anova", data=train)
 
@@ -33,7 +33,7 @@ model3_acc <- function(train)
   return(train_acc)
 }
 
-model4_acc <- function(train)
+model4_loss <- function(train)
 {
   fitControl <- trainControl(method="repeatedcv", number=2, repeats=1)
   model <- train(target~., data=train, method="gbm", trControl=fitControl, verbose=FALSE)

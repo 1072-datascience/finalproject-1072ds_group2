@@ -31,7 +31,7 @@ for(i in colnames(train_data)) {
 row_count = nrow(train_data)
 train_data <- train_data[sample(1:row_count), ]
 
-print(model1_acc(train_data))
-print(model2_acc(train_data))
-print(model3_acc(train_data))
-print(model4_acc(train_data))
+print(model1_loss(train_data))
+print(model2_loss(train_data))
+print(model3_loss(train_data))
+print(model4_loss(train_data))
