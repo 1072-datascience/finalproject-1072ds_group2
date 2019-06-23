@@ -55,3 +55,13 @@ model4_loss <- function(train, test)
   
   return(c(train_acc, test_acc))
 }
+
+final_model <- function(train, test)
+{
+  fitControl <- trainControl(method="repeatedcv", number=2, repeats=1)
+  model <- train(target~., data=train, method="gbm", trControl=fitControl, verbose=FALSE)
+  
+  test_pred <- predict(model, test)
+  
+  return(test_pred)
+}

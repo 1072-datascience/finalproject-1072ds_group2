@@ -1,5 +1,5 @@
-source("code/model.R")
-source("code/CVgroup.R")
+source("model.R")
+source("CVgroup.R")
 
 seed = 700
 set.seed(seed)
@@ -7,7 +7,7 @@ set.seed(seed)
 # read parameters
 args = commandArgs(trailingOnly=TRUE)
 if (length(args)==0) {
-  stop("USAGE: Rscript main.R --fold n --train data/features.csv --report result/performance.csv", call.=FALSE)
+  stop("USAGE: Rscript main.R --fold n --train ../data/features.csv --report ../results/performance.csv", call.=FALSE)
 } else {
   # Read arguments and store they in variables
   target <- input <- output <- c()
@@ -97,3 +97,11 @@ print("model4")
 print(mean(model4_train_result))
 print(mean(model4_validation_result))
 print(mean(model4_test_result))
+
+# Output
+train_loss <- round(mean(model4_train_result), digits=2) 
+val_loss <- round(mean(model4_validation_result), digits=2)
+test_loss <- round(mean(model4_test_result), digits=2)
+
+out_data <- data.frame(Training=train_loss, Validation=val_loss, Test=test_loss)
+write.csv(out_data, report_path, quote=F, row.names=F)
