@@ -54,12 +54,28 @@ model4_test_result <- c()
 
 #k-fold
 for(i in c(1:fold)){
-  temp1 <- as.numeric(as.character(unlist(cvlist[[i]]))) 
-  temp2 <- as.numeric(as.character(unlist(cvlist[[((i%%fold)+1)]])))
-  temp3 <- c(temp1,temp2)
-  k_train_data <- train_data[-temp3,]
-  k_validation_data <- train_data[temp1,]
-  k_test_data <- train_data[temp2,]
+  # temp1 <- as.numeric(as.character(unlist(cvlist[[i]]))) 
+  # temp2 <- as.numeric(as.character(unlist(cvlist[[((i%%fold)+1)]])))
+  # temp3 <- c(temp1,temp2)
+  # k_train_data <- train_data[-temp3,]
+  # k_validation_data <- train_data[temp1,]
+  # k_test_data <- train_data[temp2,]
+  fold_size = nrow(train_data) / fold
+  start_idx <- (i-1)*fold_size + 1
+  end_idx <- (i*fold_size)
+  if(end_idx != fold*fold_size) {
+    validation <- train_data[start_idx:end_idx, ]
+    test <- train_data[end_idx:(end_idx+fold_size), ]
+    end_idx <- (end_idx + fold_size)
+    train <- train_data[-(start_idx:end_idx), ]
+  } else {
+    test <- train_data[0:fold_size, ]
+    validation <- train_data[start_idx:end_idx, ]
+    train <- train_data[fold_size:start_idx, ]
+  }
+  k_train_data = train
+  k_validation_data= validation
+  k_test_data = test
   
   model1_train_result <- c(model1_train_result, model1_loss(k_train_data,k_train_data))
   model1_validation_result <- c(model1_validation_result, model1_loss(k_train_data,k_validation_data))
