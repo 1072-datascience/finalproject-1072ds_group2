@@ -7,7 +7,7 @@ set.seed(seed)
 # read parameters
 args = commandArgs(trailingOnly=TRUE)
 if (length(args)==0) {
-  stop("USAGE: Rscript main.R --fold n --train data/features.csv --report performance.csv", call.=FALSE)
+  stop("USAGE: Rscript main.R --fold n --train data/features.csv --report result/performance.csv", call.=FALSE)
 } else {
   # Read arguments and store they in variables
   target <- input <- output <- c()
@@ -33,11 +33,28 @@ for(i in colnames(train_data)) {
 row_count = nrow(train_data)
 train_data <- train_data[sample(1:row_count), ]
 
-print(model1_loss(train_data))
-print(model2_loss(train_data))
-print(model3_loss(train_data))
-print(model4_loss(train_data))
+#Random number list of k-fold
+cvlist <- CVgroup(k = fold,datasize = row_count,seed = seed)
 
-# datasize <- nrow(iris)
-# cvlist <- CVgroup(k = fold,datasize = datasize,seed = seed)
-# print(cvlist)
+model1_result = c()
+model2_result = c()
+model3_result = c()
+model4_result = c()
+
+#k-fold
+for(i in c(1:fold)){
+  temp <- as.numeric(as.character(unlist(cvlist[[i]]))) 
+  k_train_data <- train_data[temp,]
+  
+  model1_result <- c(model1_result, model1_loss(k_train_data))
+  model2_result <- c(model2_result, model2_loss(k_train_data))
+  model3_result <- c(model3_result, model3_loss(k_train_data))
+  model4_result <- c(model4_result, model4_loss(k_train_data))
+}
+
+print(mean(model1_result))
+print(mean(model2_result))
+print(mean(model3_result))
+print(mean(model4_result))
+
+
