@@ -4,7 +4,6 @@
 * < 陳嘉葳, 105204031 >
 * < 黃品硯, 105703058 >
 * < 劉容任, 104703035 >
-* ...
 
 ### Goal
 A breif introduction about your project, i.e., what is your goal?
