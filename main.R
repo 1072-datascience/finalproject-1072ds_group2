@@ -1,11 +1,13 @@
-source("model.R")
+source("code/model.R")
+source("code/CVgroup.R")
 
-set.seed(700)
+seed = 700
+set.seed(seed)
 
 # read parameters
 args = commandArgs(trailingOnly=TRUE)
 if (length(args)==0) {
-  stop("USAGE: Rscript main.R --fold n --train ../data/features.csv --report performance.csv", call.=FALSE)
+  stop("USAGE: Rscript main.R --fold n --train data/features.csv --report performance.csv", call.=FALSE)
 } else {
   # Read arguments and store they in variables
   target <- input <- output <- c()
@@ -35,3 +37,7 @@ print(model1_loss(train_data))
 print(model2_loss(train_data))
 print(model3_loss(train_data))
 print(model4_loss(train_data))
+
+# datasize <- nrow(iris)
+# cvlist <- CVgroup(k = fold,datasize = datasize,seed = seed)
+# print(cvlist)
