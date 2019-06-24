@@ -14,6 +14,7 @@ You should provide an example commend to reproduce your result
 Rscript code/your_script.R --input data/training --output results/performance.tsv
 ```
 * any on-line visualization
+ * 互動式網頁（預測結果）：https://willwill.shinyapps.io/testonly/
 
 ## Folder organization and its related information
 
