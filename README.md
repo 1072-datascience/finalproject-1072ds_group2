@@ -6,48 +6,47 @@
 * < 劉容任, 104703035 >
 
 ### Goal
-A breif introduction about your project, i.e., what is your goal?
+目標為預測台灣未來一天的 PM2.5 為多少。
 
 ### Demo 
-You should provide an example commend to reproduce your result
+取得模型的成效:
 ```R
-Rscript code/your_script.R --input data/training --output results/performance.tsv
+Rscript code/main.R --fold n --train data/features.csv --report results/performance.csv
 ```
-* any on-line visualization
- * 互動式網頁（預測結果）：https://willwill.shinyapps.io/testonly/
+取得模型的預測成果:
+```R
+Rscript code/predict.R --train data/features.csv --predict results/predict.csv
+```
+視覺化(Shiny):
+https://willwill.shinyapps.io/testonly/?fbclid=IwAR3GkicbdLGRXDPC0Wl-0EZ9QUP8z5OXD93V4Bl5zRSvuTmb4MmysDjJHm0
 
 ## Folder organization and its related information
 
 ### docs
-* Your presentation, 1072_datascience_FP_<yourID|groupName>.ppt/pptx/pdf, by **Jun. 25**
-* Any related document for the final project
-  * papers
-  * software user guide
+Powerpoint:
+1072_datascience_FP_Group2.pptx
 
 ### data
 
-* Source
-* Input format
-* Any preprocessing?
-  * Handle missing data
-  * Scale value
+來源:
+- 行政院環保署
+- 內政部戶政司
+- 經濟部工業局
+- 交通部氣象局
 
 ### code
 
-* Which method do you use?
-* What is a null model for comparison?
-* How do your perform evaluation? ie. Cross-validation, or extra separated data
+方法:
+- Linear Regression
+- Logistic Regression
+- Decision Tree
+- Gradient Boosting Algorithms
 
 ### results
 
-* Which metric do you use 
-  * precision, recall, R-square
-* Is your improvement significant?
-* What is the challenge part of your project?
+RMSE: 8.37 左右
 
 ## Reference
-* Code/implementation which you include/reference (__You should indicate in your presentation if you use code for others. Otherwise, cheating will result in 0 score for final project.__)
-* Packages you use
-* Related publications
+None
 
 
