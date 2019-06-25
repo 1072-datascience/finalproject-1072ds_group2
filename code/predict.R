@@ -28,6 +28,6 @@ train_idx = 1:floor(row_count*0.7)
 train <- train_data[train_idx, ]
 test <- train_data[-train_idx, ]
 
-predict <- final_model(train, test)
-out_data <- cbind(predict, test)
+predict <- final_model(train, train_data)
+out_data <- cbind(predict, train_data)
 write.csv(out_data, predict_path, quote=F, row.names=F)
