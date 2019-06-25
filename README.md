@@ -33,6 +33,7 @@ Powerpoint:
 - 內政部戶政司
 - 經濟部工業局
 - 交通部氣象局
+- 社會經濟資料服務平台：https://segis.moi.gov.tw/stat/web/portal/stat_portalhome.aspx
 
 ### code
 
