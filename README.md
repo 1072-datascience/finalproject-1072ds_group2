@@ -29,10 +29,11 @@ Powerpoint:
 ### data
 
 來源:
-- 行政院環保署
+- 行政院環保署：https://erdb.epa.gov.tw
 - 內政部戶政司
 - 經濟部工業局
 - 交通部氣象局
+- 交通部統計查詢網：https://stat.motc.gov.tw/mocdb/stmain.jsp?sys=100
 - 社會經濟資料服務平台：https://segis.moi.gov.tw/stat/web/portal/stat_portalhome.aspx
 
 ### code
