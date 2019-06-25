@@ -27,7 +27,7 @@ Powerpoint:
 1072_datascience_FP_Group2.pptx
 
 ### data
-
+![text](https://i.imgur.com/rzxdewQ.png)
 來源:
 - 行政院環保署：https://erdb.epa.gov.tw
 - 內政部戶政司
