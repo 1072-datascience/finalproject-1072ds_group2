@@ -19,7 +19,7 @@ Rscript code/predict.R --train data/features.csv --predict results/predict.csv
 ```
 視覺化(Shiny):
 https://willwill.shinyapps.io/testonly/?fbclid=IwAR3GkicbdLGRXDPC0Wl-0EZ9QUP8z5OXD93V4Bl5zRSvuTmb4MmysDjJHm0
-
+![text](https://i.imgur.com/1MYDSFH.png)
 ## Folder organization and its related information
 
 ### docs
